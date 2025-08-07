@@ -1,0 +1,31 @@
+Package: psxai
+Type: Package
+Title: Estimates the Average Prediction Effect
+Version: 0.1.0
+Authors@R: c(
+    person(
+      "Luis", "Garcez",
+      email = "luisgarcez1@gmail.com",
+      role = c("aut", "cre")
+    )
+  )
+Description: Using the Propensity Score methodology, it estimates the effect of
+  predictors in predictions in balck-box models.
+License: MIT + file LICENSE
+Imports: 
+    WeightIt,
+    tibble,
+    tidyr,
+    testthat,
+    forestplot,
+    cobalt,
+    fastDummies,
+    janitor,
+    purrr,
+    stringr
+Encoding: UTF-8
+LazyData: true
+Depends: 
+    R (>= 3.5),
+    dplyr
+RoxygenNote: 7.3.2
