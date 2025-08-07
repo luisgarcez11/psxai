@@ -55,8 +55,4 @@ Plot it.
 ``` r
 obj3 <- obj2 %>% 
   plot_forest()
-
-obj3$plot
 ```
-
-<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
