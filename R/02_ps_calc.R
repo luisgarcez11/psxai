@@ -127,8 +127,8 @@ ps_calc <- function(obj, threshold = 0.10, n_bootstrap = 200){
                                          obj$var_mapping$categorized_var[which(obj$var_mapping$var == obj$y)]]][s])
                                 ape_v <- c(ape_v, est$estimate)
                               }
-                              return(list("lower_ci" = stats::quantile(ape_v, 0.025),
-                                          "upper_ci" = stats::quantile(ape_v, 0.975)))
+                              return(list("lower_ci" = stats::quantile(ape_v, 0.05),
+                                          "upper_ci" = stats::quantile(ape_v, 0.95)))
                             })) %>%
     tidyr::unnest_auto(col = "ape_ci" ) %>%
     tidyr::unnest_auto(col = "ape" ) %>%

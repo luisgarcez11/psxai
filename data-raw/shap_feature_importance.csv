@@ -1,0 +1,12 @@
+,col_name,feature_importance_vals
+9,no of major vessels colored by fluoroscopy,0.16885853658536593
+2,exercise induced angina,0.12913536585365856
+0,sex,0.10943048780487806
+8,slope of the peak exercise st segment,0.08487195121951219
+6,maximum heart rate achieved,0.0778682926829268
+10,thalassemia,0.0670414634146341
+3,age,0.058058536585365784
+7,st depression,0.051615853658536555
+4,resting blood pressure,0.05049634146341459
+1,fasting blood sugar,0.04384024390243906
+5,cholestrol,0.03186585365853659

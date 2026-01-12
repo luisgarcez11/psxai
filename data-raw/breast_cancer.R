@@ -1,28 +1,26 @@
 library(dplyr)
 library(ggplot2)
 library(psxai)
+library(dplyr)
+library(ggplot2)
+library(psxai)
 
-n <- names(read.csv("data-raw/predicted_probs.csv"))
-predictions <- read.csv("data-raw/predicted_probs.csv") %>%
+n <- names(read.csv("data-raw/data/adult.csv"))
+predictions <- read.csv("data-raw/predicted_probs_breast_cancer.csv") %>%
   pull(1)
-predictions <- c(0.987, predictions)
+predictions <- c(0.31, predictions)
 
-obj3 <- preprocess_data(data = psxai::heart_preprocess %>%
-                          select(Sex, `Fasting blood sugar`,
-                                 `Exercise-induced angina`,
-                                 Age,
-                                 `Resting blood pressure`,
-                                 Cholestrol, `Maximum heart rate achieved`,
-                                 `ST depression`,
-                                 `Slope of the peak exercise ST segment`,
-                                 `No. of major vessels colored by fluoroscopy`,
-                                 Thalassemia,
-                                 `Heart Disease`
-                                 ) %>%
+data2 <- read.csv("data-raw/data/adult.csv")
+
+obj3 <- preprocess_data(data = data2 %>%
+                          select(age, fnlwgt, education.num,sex,
+                                 capital.gain, capital.loss, hours.per.week,
+                                 income
+                          ) %>%
                           mutate(predictions = predictions),
-                indeps = NULL,
-                y = "Heart Disease",
-                pred = "predictions") %>%
+                        indeps = NULL,
+                        y = "income",
+                        pred = "predictions") %>%
   ps_calc() %>%
   psxai::plot_forest()
 
@@ -55,7 +53,7 @@ ggplot2::ggplot(data = shap_feature_imp) +
 #the main of PS is access feature improtannce without confouding
 
 #introduction - explain the importance of explianing ML models,
-  #explain the main pitfalls od SHAP
+#explain the main pitfalls od SHAP
 
 #software - R package
 
